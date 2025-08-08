@@ -21,3 +21,29 @@ Navigate to the directory and then execute the command
 ```cmd 
 npm run dev
 ```
+
+## Endpoints
+### POST `/cinema/new`
+```javascript
+const seatConfigurationSchema = {
+    rows: string[],
+    totalSeats: number // per row
+}
+
+const CinemaRequest = {
+    name: string,
+    location: string,
+    screenType: string,
+    numberOfSeats: number,
+    seatConfiguration: seatConfigurationSchema,
+    features: string[]
+}
+```
+
+### POST `/cinema/:cinemaId/purchase/:seatNumber`
+```javascript
+  seatNumber // it should be like 1A, 1B
+  cinemaId: string // uuid
+```
+### POST `/cinema/:cinemaId/purchase/consecutive`
+It will book the first two available consecutive seats
